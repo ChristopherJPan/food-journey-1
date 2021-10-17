@@ -79,16 +79,17 @@ recipeController.getRecipes = (req, res, next) => {
 
 recipeController.createRecipe = (req, res, next) => {
   //Only one user
+  console.log('THE BODY OF REQUEST = ', req.body);
   res.locals.userId = 1;
-  let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.name}', ${res.locals.userId}, '${req.body.directions}'});`;
+  let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.name}', ${res.locals.userId}, '${req.body.directions}');`;
+  
+
 
   const ingredients = req.body.ingredients;
-  createQuery+=`SET @recipe_id = LAST_INSERT_ID();`;
 
   for(item of ingredients){
-    createQuery+=`INSERT IGNORE INTO ingredients (name) VALUES ('${item.name}'');`;
-    createQuery+=`SET @ingredient_id = LAST_INSERT_ID();`;
-    createQuery+=`INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (@recipe_id, @ingredient_id, ${item.quantity}, '${item.units}');`;
+    createQuery+=` INSERT INTO ingredients (name) VALUES ('${item.name}');`;
+    createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), currval('ingredients__id_seq'), ${item.quantity}, '${item.units}');`;
   }
 
   db.query(createQuery, (err, data) => {
