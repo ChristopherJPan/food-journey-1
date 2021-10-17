@@ -12,7 +12,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // importing actions, uncomment when actions are properly defined
-// import * as actions from '../../redux/actions/actions'
+import * as actions from '../../redux/actions/actions'
 
 // importing child components
 import NavBar from '../components/NavBar';
@@ -21,13 +21,15 @@ import RecipeList from '../components/RecipeList';
 // mapStateToProps
 const mapStateToProps = state => ({
   // need to define state first, then fill this in
-  // recipeLlist: state.recipeList,
+  recipeList: state.recipe.recipieList,
+  
 });
 
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
   // need to better flesh out actions, then map below
-  // createRecipe: () => dispatch(actions.createRecipe())
+  logIn: () => dispatch(actions.accountInfo()),
+  createRecipe: () => dispatch(actions.recipeCreator())
 });
 
 class MainContainer extends Component {

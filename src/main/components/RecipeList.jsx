@@ -13,26 +13,28 @@ import Recipe from './Recipe';
 const RecipeList = (props) => {
 
   // to implement later when receiving an array of objects for each recipe
-  /*
-  const recipes = props.recipeList.map((recipe) => (
+
+  const recipeList = props.recipeList.map((recipe) => (
     <Recipe
-      key={recipe.id}
-      name={recipe.name}
-      chef={recipe.chef}
-      image={recipe.image} // stretch goal
-      // if expand feature is added, add it here and remove ingredients/instructions
+      key={recipe.recipeId}
+      id={recipe.recipeId}
+      name={recipe.recipeName}
+      chef={recipe.account}
+      accountId={recipe.accountId}
       ingredients={recipe.ingredients}
-      instrucitons={recipe.instructions}
+      instructions={recipe.instructions}
+      // image={recipe.image} // stretch goal
+      // if expand feature is added, add it here and remove ingredients/instructions
     />
   ));
-  */
+
 
   return(
     <div id="recipeList">
       <h3>Recipes</h3>
-      <Recipe />
+      { recipeList }
     </div>
-  )
-}
+  );
+};
 
 export default RecipeList;

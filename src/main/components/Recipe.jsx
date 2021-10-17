@@ -8,17 +8,35 @@
  */
 
 import React from 'react';
+import Ingredients from './Ingredients';
 
-const Recipe = props => (
+const Recipe = props => {
+  
+  const ingredientsArray = props.ingredients.map((ing) => (
+    <Ingredients
+      name={ing.name}
+      quantity={ing.quantity}
+      unitOfMeasurement={ing.unitOfMeasurement}
+      // [{
+      //   name: '',
+      //   quantity: 0,
+      //   unitOfMeasurement: '',
+      // }]
+      //expect the data of ingredients to be formated this way
+    />
+  ));
+
+  return (
   <div className="recipe">
     {/* remove the below and instead populate data from props, once available */}
     <strong>Simple Xi'an Spices</strong>
     <p>Created by: Master Chef</p>
     <p>Ingredients:
       <ul>
-        <li>2 tbsp cumin</li>
+        { ingredientsArray }
+        {/* <li>2 tbsp cumin</li>
         <li>1 tbsp fennel seeds</li>
-        <li>2 tbsp cayenna</li>
+        <li>2 tbsp cayenna</li> */}
       </ul>
     </p>
     <p>Instructions:
@@ -29,6 +47,7 @@ const Recipe = props => (
       </ol>
     </p>
   </div>
-)
+  );
+};
 
 export default Recipe;

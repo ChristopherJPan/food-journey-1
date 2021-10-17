@@ -1,16 +1,16 @@
 import * as types from './actionTypes';
 
-export const createRe = somethingElse => ({
+export const recipeCreator = recipeInfo => ({
   type: type.CREATERECIPE,
-  payload: somethingElse,
+  payload: recipeInfo,
 });
 
-export const createRe = somethingElse => ({
-  type: type.CREATERECIPE,
-  payload: somethingElse,
+export const loggingIn = accountInfo => ({
+  type: type.LOGIN,
+  payload: accountInfo,
 });
 
-export const createRe = somethingElse => ({
-  type: type.CREATERECIPE,
-  payload: somethingElse,
+export const searchingForRecipe = recipeName => ({
+  type: type.SEARCHING,
+  payload: recipeName,
 });
