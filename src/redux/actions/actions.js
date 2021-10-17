@@ -1,7 +1,16 @@
 import * as types from './actionTypes';
 
-export const testingTest = somethingElse => ({
-  type: type.SOMETHING,
+export const createRe = somethingElse => ({
+  type: type.CREATERECIPE,
   payload: somethingElse,
 });
 
+export const createRe = somethingElse => ({
+  type: type.CREATERECIPE,
+  payload: somethingElse,
+});
+
+export const createRe = somethingElse => ({
+  type: type.CREATERECIPE,
+  payload: somethingElse,
+});
