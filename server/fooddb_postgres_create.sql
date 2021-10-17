@@ -46,7 +46,7 @@ CREATE TABLE public.likes (
 CREATE TABLE public.ingredients (
   "_id" serial NOT NULL,
   "name" varchar NOT NULL,
-  "recipe_id" bigint NULL,
+  "recipe_id" bigint,
   CONSTRAINT "ingredients_pk" PRIMARY KEY ("_id")
 ) WITH (
   OIDS=FALSE
