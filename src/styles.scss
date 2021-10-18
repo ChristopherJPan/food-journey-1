@@ -11,6 +11,7 @@ h1 {
   margin-top: 1em;
   font-family: Lobster;
 }
+
 div#mainContainer {
   display: grid;
   grid-template-columns: 1fr minmax(auto, 7fr) 1fr;
@@ -53,31 +54,76 @@ div#mainContainer {
       margin: 1em;
       color: rgba(255, 255, 255, 0.6);
     }
-    fieldset.recipe {
-      background-color: #fff;
-      border: none;
-      margin: 1em 2em;
-      padding: 0.1em 0;
-      border-radius: 0.5em;
-      box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.2);
-      legend {
-        padding: 0.3em;
-        margin-left: 1em;
-        background-color: #fff;
-        border-radius: 0.5em;
-        box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.2);
-        font-size: 1.4em;
-        font-family: Lobster;
-      }
-      h5 {
-        text-align: right;
-        margin-right: 2em;
-        padding-left: min(6em, 10%);
-      }
-      div.ingredients, div.instructions {
-        text-align: left;
-        margin: 0 2em;
+    h5 {
+      text-align: right;
+      margin-right: 2em;
+      padding-left: min(6em, 10%);
+    }
+    div.ingredients, div.instructions {
+      text-align: left;
+      margin: 0 2em;
+    }
+  }
+}
+
+div#createRecipeContainer {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 7fr) 1fr;
+  grid-template-rows: 1em 3em minmax(auto, 1fr) 1fr;
+  grid-gap: 1em;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  section#createRecipe {
+    display: grid;
+    grid-column: 2;
+    grid-row: 2;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        display: grid;
+        align-items: center;
+        margin: 0.5em 2em;
+        label {
+          text-align: left;
+          padding-bottom: 0.1em;
+        }
       }
     }
+    fieldset#ingredients {
+      padding: 1em 0;
+    }
+    button {
+      margin: 0.8em;
+      padding: 0.3em 0.5em;
+      float: right;
+      border: 0.1em solid rgba(0,0,0,0);
+      border-radius: 0.5em;
+      background: #fff;
+      box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.1);
+      &:hover {
+        background-color: #eef;
+        border: 0.1em solid #aaf;
+      }
+    }
+  }
+}
+
+fieldset {
+  background-color: #fff;
+  border: none;
+  margin: 1em 2em;
+  padding: 0.1em 0;
+  border-radius: 0.5em;
+  box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.2);
+  legend {
+    padding: 0.3em;
+    margin-left: 1em;
+    background-color: #fff;
+    border-radius: 0.5em;
+    box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.2);
+    font-size: 1.4em;
+    font-family: Lobster;
   }
 }
