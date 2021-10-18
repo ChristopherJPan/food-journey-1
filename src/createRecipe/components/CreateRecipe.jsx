@@ -24,7 +24,7 @@ const CreateRecipe = props => {
         // .then(data => store.dispatch(getInitialState(data)))
         // .then(data => console.log(data))
       .then(data => this.props.createRecipe(data))
-      
+
     props.createRecipe(sendingTheStuff)
     // store.dispatch(addWifuCreator(textValue));
   }
@@ -51,32 +51,44 @@ const CreateRecipe = props => {
   // instructions: action.payload.instructions,
 
   return (
-    <form>
-      <fieldset>
-        <legend>
+    <section id="createRecipe">
+      <fieldset id="newRecipe">
+        <legend>New Recipe</legend>
+        <form>
           <ul>
             <li>
-              <label for="recipeName">Recipe Name:</label>
+              <label for="recipeName">Recipe Name</label>
               <input type="text" id="recipeName" />
             </li>
+            <fieldset id="ingredients">
+              <legend>Ingredient</legend>
+              <ul>
+                <li>
+                  <label for="ingredientName">Name</label>
+                  <input type="text" id="ingredientName" />
+                </li>
+                <li>
+                  <label for="ingredientQuantity">Quantity</label>
+                  <input type="text" id="ingredientQuantity" />
+                </li>
+                <li>
+                  <label for="ingredientUnit">Unit of Measurement</label>
+                  <input type="text" id="ingredientUnit" />
+                </li>
+                <button onClick='x'>Remove Ingredient</button>
+                <button onClick='x'>Another Ingredient</button>
+              </ul>
+            </fieldset>
             <li>
-              <label for="ingredientName">Ingredient Name:</label>
-              <input type="text" id="ingredientName" />
-              <label for="ingredientQuantity">Ingredient Quantity:</label>
-              <input type="text" id="ingredientQuantity" />
-              <label for="ingredientUnit">Ingredient Unit of Measurement:</label>
-              <input type="text" id="ingredientUnit" />
-            </li>
-            <li>
-              <label for="instructions">Instructions:</label>
+              <label for="instructions">Instructions</label>
               <input type="text" id="instructions" />
             </li>
           </ul>
-          <button onClick='x'></button>
-        </legend>
+          {/* <Link to="/main"><button onClick={(e) => handleClick(e)} id="CREATERECI">CREATE RECIPE BUT</button></Link> */}
+          <Link to="/main"><button onClick={(e) => handleClick(e)}>Submit</button></Link>
+        </form>
       </fieldset>
-      <Link to="/main"><button onClick={(e) => handleClick(e)} id="CREATERECIPIESANDSTUFF">CREATE RECIPE BUTTON, SENDING DATA TO BACKEND, UPDATING STATE, AND RETURNING TO MAIN PAGE</button></Link>
-    </form>
+    </section>
   );
 };
 
