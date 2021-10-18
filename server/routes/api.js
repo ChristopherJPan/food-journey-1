@@ -12,7 +12,7 @@ router.get('/recipes',
   },
   recipeController.getRecipes,
   (req, res) => {
-    return res.status(200).json(res.locals.recipes);
+    return res.status(200).json(res.locals.recipeList);
   }
 );
 
@@ -26,6 +26,7 @@ router.post('/recipes',
 
 router.get('/login',
   userController.verifyUser,
+  recipeController.getUserRecipes,
   (req, res) => {
     return res.status(200).json({...res.locals});
   }
