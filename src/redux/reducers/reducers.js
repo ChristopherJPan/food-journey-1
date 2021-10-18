@@ -109,6 +109,7 @@ const recipeReducer = (state = initalState, action) => {
       return {...state, recipeList: action.payload};
     }
 
+    // case types.
     // create a recipe
 
     // logining in
