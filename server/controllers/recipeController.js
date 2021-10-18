@@ -145,7 +145,7 @@ recipeController.createRecipe = (req, res, next) => {
   //Only one user
   console.log('THE BODY OF REQUEST = ', req.body);
   res.locals.userId = 1;
-  let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.name}', ${res.locals.userId}, '${req.body.directions}');`;
+  let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.recipeName}', ${res.locals.userId}, '${req.body.instructions}');`;
 
 
 
@@ -153,7 +153,7 @@ recipeController.createRecipe = (req, res, next) => {
 
   for(item of ingredients){
     createQuery+=` INSERT INTO ingredients (name) VALUES ('${item.name}');`;
-    createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), currval('ingredients__id_seq'), ${item.quantity}, '${item.units}');`;
+    createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), currval('ingredients__id_seq'), ${item.quantity}, '${item.unitOfMeasurement}');`;
   }
 
   db.query(createQuery, (err, data) => {
