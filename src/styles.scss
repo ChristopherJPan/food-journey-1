@@ -14,7 +14,7 @@ h1 {
 div#mainContainer {
   display: grid;
   grid-template-columns: 1fr minmax(auto, 7fr) 1fr;
-  grid-template-rows: 1fr minmax(auto, 1fr) 1fr;
+  grid-template-rows: 1em 3em minmax(auto, 1fr) 1fr;
   grid-gap: 1em;
   width: 100%;
   height: 100vh;
@@ -43,6 +43,7 @@ div#mainContainer {
     grid-row: 3;
     grid-gap: 1em;
     text-align: center;
+    padding-bottom: 2em;
     border-radius: 0.5em;
     box-shadow: 0 0.5em 1em 0.2em rgba(0,0,0,0.2);
     h2 {
@@ -63,7 +64,8 @@ div#mainContainer {
         padding: 0.3em;
         margin-left: 1em;
         background-color: #fff;
-        border-radius: 0.3em;
+        border-radius: 0.5em;
+        box-shadow: 0 0.1em 0.2em 0.1em rgba(0,0,0,0.2);
         font-size: 1.4em;
         font-family: Lobster;
       }

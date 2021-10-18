@@ -24,7 +24,7 @@ router.post('/recipes',
 );
 
 
-router.get('/login',
+router.post('/login',
   userController.verifyUser,
   recipeController.getUserRecipes,
   (req, res) => {

@@ -21,7 +21,7 @@ import RecipesContainer from './RecipesContainer';
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
   // logIn: () => dispatch(actions.accountInfo()),
-  getState: () => dispatch(actions.getInitialState()) //may need to put parameter
+  getState: (data) => dispatch(actions.getInitialState(data))
 });
 
 
