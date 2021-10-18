@@ -9,7 +9,11 @@
 
 import React, {Component} from 'react';
 import MainContainer from './main/containers/MainContainer';
+// import CreateRecipeContainer from './createRecipe/Container';
+import { Switch, Route } from "react-router-dom";
 // import {BrowserRouter as Router, Switch, Route, Link, NavLink} from 'react-router-dom';
+
+
 
 class App extends Component {
   constructor(props){
@@ -19,12 +23,13 @@ class App extends Component {
   render() {
     return (
       <div id="container">
-        <MainContainer />
+        <Switch>
+          <Route path="/" component={MainContainer} exact/>
+          {/* <Route path="/createRecipe" component={CreateRecipe}/> */}
+        </Switch>
       </div>
     );
   }
 }
-
-
 
 export default App;

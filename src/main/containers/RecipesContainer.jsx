@@ -18,7 +18,9 @@ class RecipesContainer extends Component {
   render() {
     return(
       <div id="recipesContainer">
-        <RecipeList />
+        <RecipeList 
+        recipeList={this.props.recipeList}
+        />
       </div>
     );
   }

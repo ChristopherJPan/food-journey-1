@@ -21,14 +21,16 @@ import RecipesContainer from './RecipesContainer';
 // mapStateToProps
 const mapStateToProps = state => ({
   // need to define state first, then fill this in
-  // recipeList: state.recipe.recipieList,
+  recipeList: state.recipe.recipeList,
+
 });
 
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
   // need to better flesh out actions, then map below
   // logIn: () => dispatch(actions.accountInfo()),
-  createRecipe: () => dispatch(actions.recipeCreator())
+  // createRecipe: () => dispatch(actions.recipeCreator()),
+  getState: () => dispatch(actions.getInitialState()) //may need to put parameter
 });
 
 class MainContainer extends Component {
@@ -36,17 +38,25 @@ class MainContainer extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    fetch(`/api/recipes`)
+      .then(res => res.json())
+      // .then(data => store.dispatch(getInitialState(data)))
+      // .then(data => console.log(data))
+      .then(data => this.props.getState(data)) //not sure if this will work
+  }
+
   render() {
     return(
       <div id="mainContainer">
-        <NavBarContainer 
-          // createRecipe={this.props.createRecipe}
+        <NavBarContainer />
+        <RecipesContainer 
+          recipeList={this.props.recipeList}
         />
-        <RecipesContainer />
       </div>
     );
   }
 }
 
-export default MainContainer;
-// export default connect(mapStateoProps, null)(MainContainer); // will be required later upon full Redux integration
+// export default MainContainer;
+export default connect(mapStateToProps, null)(MainContainer); // will be required later upon full Redux integration
