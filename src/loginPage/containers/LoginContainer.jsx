@@ -18,15 +18,15 @@ import * as actions from '../../redux/actions/actions';
 import Login from '../components/Login';
 
 
-// mapStateToProps
-const mapStateToProps = state => ({
-  // need to define state first, then fill this in
-});
+// // mapStateToProps
+// const mapStateToProps = state => ({
+//   // need to define state first, then fill this in
+// });
 
-// mapDispatchToProps
-const mapDispatchToProps = dispatch => ({
-  // logIn: () => dispatch(actions.accountInfo()),
-});
+// // mapDispatchToProps
+// const mapDispatchToProps = dispatch => ({
+//   // logIn: () => dispatch(actions.accountInfo()),
+// });
 
 class LoginContainer extends Component {
   constructor(props) {
@@ -43,4 +43,5 @@ class LoginContainer extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer); // will be required later upon full Redux integration
+export default LoginContainer;
+// export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer); // will be required later upon full Redux integration

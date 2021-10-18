@@ -14,7 +14,8 @@ const mapStateToProps = state => ({
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
   // need to better flesh out actions, then map below
-  // createRecipe: () => dispatch(actions.recipeCreator())
+  createRecipe: () => dispatch(actions.recipeCreator())
+  
 });
 
 class CreateRecipeContainer extends Component {
@@ -25,7 +26,7 @@ class CreateRecipeContainer extends Component {
   render() {
     return(
       <div id="createRecipeContainer">
-        <CreateRecipe />
+        <CreateRecipe createRecipe={this.props.createRecipe}/>
       </div>
     );
   }
