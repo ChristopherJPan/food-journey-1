@@ -74,6 +74,8 @@ recipeController.getRecipes = (req, res, next) => {
 
 }
 
+// get recipes for specific user
+
 
 
 
@@ -82,7 +84,7 @@ recipeController.createRecipe = (req, res, next) => {
   console.log('THE BODY OF REQUEST = ', req.body);
   res.locals.userId = 1;
   let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.name}', ${res.locals.userId}, '${req.body.directions}');`;
-  
+
 
 
   const ingredients = req.body.ingredients;
