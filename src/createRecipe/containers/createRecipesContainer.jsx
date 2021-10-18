@@ -26,10 +26,8 @@ class createRecipesContainer extends Component {
 
   render() {
     return(
-      <div id="mainContainer">
-        <createRecipesComponent 
-          recipeList={this.props.recipeList}
-        />
+      <div>
+        <createRecipesComponent/>
       </div>
     );
   }
