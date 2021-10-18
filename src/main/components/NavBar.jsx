@@ -8,10 +8,11 @@
  */
 
 import React from 'react';
+import {Link} from "react-router-dom";
 
 const NavBar = (props) => (
   <div id="navBar">
-    <button id="createNewRecipe">Create New Recipe</button>
+    <Link to="/CreateRecipe"><button id="createNewRecipe">Create New Recipe</button></Link>
   </div>
 );
 

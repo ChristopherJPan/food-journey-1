@@ -1,11 +1,10 @@
 // importing react and redux libraries
 import React, { Component } from 'react';
-import createRecipesComponent from '../components/createRecipesComponent';
 import { connect } from 'react-redux';
-
 // importing actions, uncomment when actions are properly defined
 import * as actions from '../../redux/actions/actions'
-
+// importing components
+import CreateRecipe from '../components/CreateRecipe';
 
 // mapStateToProps
 const mapStateToProps = state => ({
@@ -15,22 +14,24 @@ const mapStateToProps = state => ({
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
   // need to better flesh out actions, then map below
-  // logIn: () => dispatch(actions.accountInfo()),
-  createRecipe: () => dispatch(actions.recipeCreator())
+  // createRecipe: () => dispatch(actions.recipeCreator())
 });
 
-class createRecipesContainer extends Component {
+class CreateRecipeContainer extends Component {
   constructor(props) {
     super(props);
   }
 
   render() {
     return(
-      <div>
-        <createRecipesComponent/>
+      <div id="createRecipeContainer">
+        <h2>Create a Recipe</h2>
+
+        <CreateRecipe />
       </div>
     );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(createRecipesContainer); // will be required later upon full Redux integration
+export default CreateRecipeContainer;
+// export default connect(mapStateToProps, mapDispatchToProps)(createRecipesContainer); // will be required later upon full Redux integration

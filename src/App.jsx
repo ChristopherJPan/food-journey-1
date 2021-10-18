@@ -9,7 +9,8 @@
 
 import React, {Component} from 'react';
 import MainContainer from './main/containers/MainContainer';
-import CreateRecipeContainer from './createRecipe/containers/createRecipesContainer';
+import CreateRecipeContainer from './createRecipe/containers/CreateRecipeContainer';
+// import LoginPage from './loginPage/containers/LoginContainer';
 import { Switch, Route } from "react-router-dom";
 // import {BrowserRouter as Router, Switch, Route, Link, NavLink} from 'react-router-dom';
 
@@ -24,8 +25,10 @@ class App extends Component {
     return (
       <div id="container">
         <Switch>
+          {/* <Route path="/" compnent={LoginPage} exact/> */}
           <Route path="/" component={MainContainer} exact/>
-          {/* <Route path="/createRecipe" component={CreateRecipe}/> */}
+          <Route path="/CreateRecipe" component={CreateRecipeContainer} exact/>
+          
         </Switch>
       </div>
     );
