@@ -20,29 +20,29 @@ const Recipe = props => {
    * unitOfMeasurement: '',
    * }]
    */
-  const ingredientsArray = props.ingredients.map((ing) => (
+  const ingredientsArray = props.ingredients.map((ingredient) => (
     <Ingredients
-      name={ing.name}
-      quantity={ing.quantity}
-      unitOfMeasurement={ing.unitOfMeasurement}
+      name={ingredient.name}
+      quantity={ingredient.quantity}
+      unitOfMeasurement={ingredient.unitOfMeasurement}
     />
   ));
   
   return (
-  <fieldset className="recipe">
-    <legend>{props.recipeName}</legend>
-    <h5>Created by: {props.account}</h5>
-    <div className="ingredients">Ingredients:
-      <ul>
-        { ingredientsArray }
-      </ul>
-    </div>
-    <div className="instructions">Instructions:
-      <ol>
-        {props.instructions}
-      </ol>
-    </div>
-  </fieldset>
+    <fieldset className="recipe">
+      <legend>{props.recipeName}</legend>
+      <h5>Created by: {props.account}</h5>
+      <div className="ingredients">Ingredients:
+        <ul>
+          {ingredientsArray}
+        </ul>
+      </div>
+      <div className="instructions">Instructions:
+        <ol>
+          {props.instructions}
+        </ol>
+      </div>
+    </fieldset>
   );
 };
 

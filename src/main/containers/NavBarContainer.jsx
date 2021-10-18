@@ -7,9 +7,20 @@
  * ************************************
  */
 
+// importing react and redux libraries
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// importing actions, uncomment when actions are properly defined
+import * as actions from '../../redux/actions/actions';
+// importing child component
 import NavBar from '../components/NavBar';
 
+// mapDispatchToProps
+const mapDispatchToProps = dispatch => ({
+  // createRecipe: () => dispatch(actions.recipeCreator()),
+});
+
+// rendering the react component
 class NavBarContainer extends Component {
   constructor(props) {
     super(props);
@@ -24,4 +35,4 @@ class NavBarContainer extends Component {
   }
 }
 
-export default NavBarContainer;
+export default connect(null, mapDispatchToProps)(NavBarContainer);

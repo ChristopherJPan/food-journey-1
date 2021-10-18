@@ -12,11 +12,11 @@ import Recipe from './Recipe';
 
 const RecipeList = (props) => {
   
-  const theRecipeList = props.recipeList.map((recipe) => (
+  const recipes = props.recipeList.map((recipe) => (
     // console.log('this is recipe', recipe)
     <Recipe
       key={recipe.recipeId}
-      recipeId={recipe.recipeId}
+      recipeId={recipe.recipeId} // why do we use this twice?
       recipeName={recipe.recipeName}
       account={recipe.account}
       accountId={recipe.accountId}
@@ -30,7 +30,7 @@ const RecipeList = (props) => {
     <div id="recipeList">
       <h2>Recipes</h2>
       <hr />
-      { theRecipeList }
+      {recipes}
     </div>
   );
 };

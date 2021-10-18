@@ -7,9 +7,19 @@
  * ************************************
  */
 
+// importing react and redux libraries
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// importing child components
 import RecipeList from "../components/RecipeList";
 
+// mapStateToProps
+const mapStateToProps = state => ({
+  recipeList: state.recipe.recipeList,
+
+});
+
+// rendering the react component
 class RecipesContainer extends Component {
   constructor(props) {
     super(props);
@@ -26,4 +36,4 @@ class RecipesContainer extends Component {
   }
 }
 
-export default RecipesContainer;
+export default connect(mapStateToProps, null)(RecipesContainer);

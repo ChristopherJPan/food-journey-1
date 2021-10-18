@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 
+// perform POST here to '/api/recipes'
 export const recipeCreator = recipeInfo => ({
   type: types.CREATERECIPE,
   payload: recipeInfo,
@@ -15,7 +16,16 @@ export const searchingForRecipe = recipeName => ({
   payload: recipeName,
 });
 
-export const getInitialState = theState => ({
-  type: types.GET_INITIAL_STATE,
-  payload: theState,
-})
+// perform GET here to '/api/recipes'
+export const getInitialState = () => dispatch => {
+  fetch('/api/recipes')
+    .then(({ data }) => {
+      dispatch({
+        type: types.GET_INITIAL_STATE,
+        payload: data,
+      });
+    })
+    .catch(console.error);
+  // type: types.GET_INITIAL_STATE,
+  // payload: theState,
+};
