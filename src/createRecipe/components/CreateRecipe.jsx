@@ -43,12 +43,8 @@ const CreateRecipe = props => {
             <li>
               <label for="ingredientName">Ingredient Name:</label>
               <input type="text" id="ingredientName" />
-            </li>
-            <li>
               <label for="ingredientQuantity">Ingredient Quantity:</label>
               <input type="text" id="ingredientQuantity" />
-            </li>
-            <li>
               <label for="ingredientUnit">Ingredient Unit of Measurement:</label>
               <input type="text" id="ingredientUnit" />
             </li>
