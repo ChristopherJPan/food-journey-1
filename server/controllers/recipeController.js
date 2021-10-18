@@ -49,23 +49,24 @@ recipeController.getRecipes = (req, res, next) => {
         const ingredient = {
           name: entry.ingredient_name,
           quantity: entry.quantity,
-          unit: entry.units
+          unitOfMeasurement: entry.units
         }
 
         // if recipe does not already exist
         if (!recipesObj.hasOwnProperty(String(entry.recipe_id))) {
           // create object at recip id
           recipesObj[String(entry.recipe_id)] = {
-            recipe_name: entry.recipe_name,
-            recipe_ingredients: [ingredient],
-            recipe_instructions: entry.recipe_instructions,
-            user_username: entry.user_name
+            recipeId: entry.recipe_id,
+            recipeName: entry.recipe_name,
+            ingredients: [ingredient],
+            instructions: entry.recipe_instructions,
+            account: entry.user_name
           };
         }
         // otherwise push the new ingredient
         else {
           console.log('more than 1 ingredient');
-          recipesObj[String(entry.recipe_id)].recipe_ingredients.push(ingredient);
+          recipesObj[String(entry.recipe_id)].ingredients.push(ingredient);
         }
 
       }
@@ -108,23 +109,24 @@ recipeController.getUserRecipes = (req, res, next) => {
         const ingredient = {
           name: entry.ingredient_name,
           quantity: entry.quantity,
-          unit: entry.units
+          unitOfMeasurement: entry.units
         }
 
         // if recipe does not already exist
         if (!recipesObj.hasOwnProperty(String(entry.recipe_id))) {
           // create object at recip id
           recipesObj[String(entry.recipe_id)] = {
-            recipe_name: entry.recipe_name,
-            recipe_ingredients: [ingredient],
-            recipe_instructions: entry.recipe_instructions,
-            user_username: entry.user_name
+            recipeId: entry.recipe_id,
+            recipeName: entry.recipe_name,
+            ingredients: [ingredient],
+            instructions: entry.recipe_instructions,
+            account: entry.user_name
           };
         }
         // otherwise push the new ingredient
         else {
           console.log('more than 1 ingredient');
-          recipesObj[String(entry.recipe_id)].recipe_ingredients.push(ingredient);
+          recipesObj[String(entry.recipe_id)].ingredients.push(ingredient);
         }
 
       }
@@ -143,15 +145,15 @@ recipeController.createRecipe = (req, res, next) => {
   //Only one user
   console.log('THE BODY OF REQUEST = ', req.body);
   res.locals.userId = 1;
-  let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.name}', ${res.locals.userId}, '${req.body.directions}');`;
+  let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.recipeName}', ${res.locals.userId}, '${req.body.instructions}');`;
 
 
 
   const ingredients = res.locals.ingredients;
   // [{id: name: quantity: units: }]
   for(item of ingredients){
-
-    createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), ${item.id}, ${item.quantity}, '${item.units}');`;
+    createQuery+=` INSERT INTO ingredients (name) VALUES ('${item.name}');`;
+    createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), currval('ingredients__id_seq'), ${item.quantity}, '${item.unitOfMeasurement}');`;
   }
 
   db.query(createQuery, (err, data) => {

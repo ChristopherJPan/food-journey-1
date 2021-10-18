@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 app.use('/api', apiRouter);
 
-app.get('/',
+app.get('/*',
   (req, res) => {
   return res.status(200).sendFile(path.resolve(__dirname, '../public/index.html'));
 })

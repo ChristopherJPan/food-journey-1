@@ -1,78 +1,13 @@
 import * as types from '../actions/actionTypes';
 
 const initalState = {
-
-  // accountId: 0,
-  // account: '',
-  // accountFirstName: '',
-  // accountLastName: '',
-  // accountEmail: '',
-  // recipeList: [],
-  // currentRecipeId: 0
-
-  accountId: 1,
-  account: 'test1',
-  accountFirstName: 'test2',
-  accountLastName: 'test3',
-  accountEmail: 'test4',
-  recipeList: [{
-    accountId: 69,
-    account: 'BootySlayer911',
-    recipeId: 96,
-    recipeName: 'WifuCreator',
-    ingredients: [{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    }], //need to make the array of objects in our payload
-    instructions: 'this is a string',
-  },{
-    accountId: 69,
-    account: 'BootySlayer911',
-    recipeId: 96,
-    recipeName: 'WifuCreator',
-    ingredients: [{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    },{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    },{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    },{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    }], //need to make the array of objects in our payload
-    instructions: 'this is a string',
-  },{
-    accountId: 69,
-    account: 'BootySlayer911',
-    recipeId: 96,
-    recipeName: 'WifuCreator',
-    ingredients: [{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    }], //need to make the array of objects in our payload
-    instructions: 'this is a string',
-  },{
-    accountId: 69,
-    account: 'BootySlayer911',
-    recipeId: 96,
-    recipeName: 'WifuCreator',
-    ingredients: [{
-      name:'1',
-      quantity:'2',
-      unitOfMeasurement:'3'
-    }], //need to make the array of objects in our payload
-    instructions: 'this is a string',
-  }],
-  currentRecipeId: 2
+  accountId: 0,
+  account: '',
+  accountFirstName: '',
+  accountLastName: '',
+  accountEmail: '',
+  recipeList: [],
+  currentRecipeId: 0
 };
 
 const recipeReducer = (state = initalState, action) => {
@@ -83,18 +18,15 @@ const recipeReducer = (state = initalState, action) => {
       const currentRecipeId = ++state.currentRecipeId;
 
       const newRecipe = {
-        accountId: state.accountId,
         account: state.account,
         recipeId: currentRecipeId,
         recipeName: action.payload.recipeName,
-        ingredients: action.payload.ingredients, //need to make the array of objects in our payload
+        ingredients: action.payload.ingredients,
         instructions: action.payload.instructions,
       }
 
       recipeList = state.recipeList.slice();
       recipeList.push(newRecipe);
-
-      // fetch(/)
 
       return {
         ...state,
@@ -104,11 +36,10 @@ const recipeReducer = (state = initalState, action) => {
     }
 
     case types.GET_INITIAL_STATE: {
-      console.log('HELLO MY WIFUS!', action.payload);
-      let currentState = action.payload[0]
-      return {...state, ...currentState}
+      return {...state, recipeList: action.payload};
     }
 
+    // case types.
     // create a recipe
 
     // logining in
