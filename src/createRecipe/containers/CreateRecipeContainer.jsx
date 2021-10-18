@@ -25,8 +25,6 @@ class CreateRecipeContainer extends Component {
   render() {
     return(
       <div id="createRecipeContainer">
-        <h2>Create a Recipe</h2>
-
         <CreateRecipe />
       </div>
     );
