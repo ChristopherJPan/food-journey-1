@@ -49,3 +49,4 @@ class MainContainer extends Component {
 }
 
 export default MainContainer;
+// export default connect(mapStateoProps, null)(MainContainer); // will be required later upon full Redux integration
