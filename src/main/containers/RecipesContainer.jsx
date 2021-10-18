@@ -19,7 +19,7 @@ class RecipesContainer extends Component {
     return(
       <div id="recipesContainer">
         <RecipeList 
-        recipeList={this.props.recipeList}
+          recipeList={this.props.recipeList}
         />
       </div>
     );

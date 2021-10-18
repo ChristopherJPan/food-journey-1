@@ -20,14 +20,12 @@ import RecipesContainer from './RecipesContainer';
 
 // mapStateToProps
 const mapStateToProps = state => ({
-  // need to define state first, then fill this in
   recipeList: state.recipe.recipeList,
 
 });
 
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
-  // need to better flesh out actions, then map below
   // logIn: () => dispatch(actions.accountInfo()),
   // createRecipe: () => dispatch(actions.recipeCreator()),
   getState: () => dispatch(actions.getInitialState()) //may need to put parameter
@@ -43,7 +41,7 @@ class MainContainer extends Component {
       .then(res => res.json())
       // .then(data => store.dispatch(getInitialState(data)))
       // .then(data => console.log(data))
-      .then(data => this.props.getState(data)) //not sure if this will work
+      .then(data => this.props.getState(data))
   }
 
   render() {
@@ -58,5 +56,4 @@ class MainContainer extends Component {
   }
 }
 
-// export default MainContainer;
-export default connect(mapStateToProps, null)(MainContainer); // will be required later upon full Redux integration
+export default connect(mapStateToProps, null)(MainContainer);
