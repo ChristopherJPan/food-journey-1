@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Lobster&display=swap');
+* { font-family: Raleway, Arial; font-weight: 400; }
+body { margin: 0; padding: 0; }
+h1,h2,h3,h4,h5,h6,p { margin: 0; }
+
+h1 {
+  display: grid;
+  grid-column: 2;
+  grid-row: 1;
+  text-align: center;
+  margin-top: 1em;
+  font-family: Lobster;
+}
+div#mainContainer {
+  display: grid;
+  grid-template-columns: 1fr minmax(auto, 7fr) 1fr;
+  grid-template-rows: 1fr minmax(auto, 1fr) 1fr;
+  grid-gap: 1em;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  div#navBarContainer {
+    display: grid;
+    grid-column: 2;
+    grid-row: 2;
+    grid-gap: 1em;
+    text-align: center;
+    button {
+      padding: 0.6em;
+      border: 0.1em solid rgba(0,0,0,0);
+      border-radius: 0.5em;
+      background: #fff;
+      box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.1);
+      &:hover {
+        background-color: #eef;
+        border: 0.1em solid #aaf;
+      }
+    }
+  }
+  div#recipesContainer {
+    display: grid;
+    grid-column: 2;
+    grid-row: 3;
+    grid-gap: 1em;
+    text-align: center;
+    border-radius: 0.5em;
+    box-shadow: 0 0.5em 1em 0.2em rgba(0,0,0,0.2);
+    h2 {
+      margin: 0.5em;
+    }
+    hr {
+      margin: 1em;
+      color: rgba(255, 255, 255, 0.6);
+    }
+    fieldset.recipe {
+      background-color: #fff;
+      border: none;
+      margin: 1em 2em;
+      padding: 0.1em 0;
+      border-radius: 0.5em;
+      box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.2);
+      legend {
+        padding: 0.3em;
+        margin-left: 1em;
+        background-color: #fff;
+        border-radius: 0.3em;
+        font-size: 1.4em;
+        font-family: Lobster;
+      }
+      h5 {
+        text-align: right;
+        margin-right: 2em;
+        padding-left: min(6em, 10%);
+      }
+      div.ingredients, div.instructions {
+        text-align: left;
+        margin: 0 2em;
+      }
+    }
+  }
+}
