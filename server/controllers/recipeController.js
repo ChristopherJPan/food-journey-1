@@ -149,11 +149,16 @@ recipeController.createRecipe = (req, res, next) => {
 
 
 
-  const ingredients = req.body.ingredients;
-
+  const ingredients = res.locals.ingredients;
+  // [{id: name: quantity: units: }]
   for(item of ingredients){
+<<<<<<< HEAD
     createQuery+=` INSERT INTO ingredients (name) VALUES ('${item.name}');`;
     createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), currval('ingredients__id_seq'), ${item.quantity}, '${item.unitOfMeasurement}');`;
+=======
+
+    createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), ${item.id}, ${item.quantity}, '${item.units}');`;
+>>>>>>> 175d2c3f273b061bf8eb55dc790c039babd052e7
   }
 
   db.query(createQuery, (err, data) => {

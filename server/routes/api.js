@@ -17,6 +17,9 @@ router.get('/recipes',
 );
 
 router.post('/recipes',
+  ingredientController.getIngredients,
+  ingredientController.createIngredients,
+  ingredientController.getIngredients,
   recipeController.createRecipe,
   (req, res) => {
     return res.sendStatus(200);
