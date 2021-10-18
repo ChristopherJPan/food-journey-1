@@ -17,15 +17,15 @@ export const searchingForRecipe = recipeName => ({
 });
 
 // perform GET here to '/api/recipes'
-export const getInitialState = () => dispatch => {
-  fetch('/api/recipes')
-    .then(({ data }) => {
-      dispatch({
-        type: types.GET_INITIAL_STATE,
-        payload: data,
-      });
-    })
-    .catch(console.error);
-  // type: types.GET_INITIAL_STATE,
-  // payload: theState,
-};
+export const getInitialState = data => ({
+  // fetch('/api/recipes')
+  //   .then(({ data }) => {
+  //     dispatch({
+  //       type: types.GET_INITIAL_STATE,
+  //       payload: data,
+  //     });
+  //   })
+  //   .catch(console.error);
+  type: types.GET_INITIAL_STATE,
+  payload: data,
+});
