@@ -12,19 +12,19 @@ import Ingredients from './Ingredients';
 
 const Recipe = props => {
   
-  const ingredientsArray = props.ingredients.map((ing) => (
-    <Ingredients
-      name={ing.name}
-      quantity={ing.quantity}
-      unitOfMeasurement={ing.unitOfMeasurement}
-      // [{
-      //   name: '',
-      //   quantity: 0,
-      //   unitOfMeasurement: '',
-      // }]
-      //expect the data of ingredients to be formated this way
-    />
-  ));
+  // const ingredientsArray = props.ingredients.map((ing) => (
+  //   <Ingredients
+  //     name={ing.name}
+  //     quantity={ing.quantity}
+  //     unitOfMeasurement={ing.unitOfMeasurement}
+  //     // [{
+  //     //   name: '',
+  //     //   quantity: 0,
+  //     //   unitOfMeasurement: '',
+  //     // }]
+  //     //expect the data of ingredients to be formated this way
+  //   />
+  // ));
 
   return (
   <div className="recipe">
@@ -33,10 +33,10 @@ const Recipe = props => {
     <p>Created by: Master Chef</p>
     <p>Ingredients:
       <ul>
-        { ingredientsArray }
-        {/* <li>2 tbsp cumin</li>
+        {/* { ingredientsArray } */}
+        <li>2 tbsp cumin</li>
         <li>1 tbsp fennel seeds</li>
-        <li>2 tbsp cayenna</li> */}
+        <li>2 tbsp cayenna</li>
       </ul>
     </p>
     <p>Instructions:

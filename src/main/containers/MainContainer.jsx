@@ -15,20 +15,19 @@ import { connect } from 'react-redux';
 import * as actions from '../../redux/actions/actions'
 
 // importing child components
-import NavBar from '../components/NavBar';
-import RecipeList from '../components/RecipeList';
+import NavBarContainer from './NavBarContainer';
+import RecipesContainer from './RecipesContainer';
 
 // mapStateToProps
 const mapStateToProps = state => ({
   // need to define state first, then fill this in
-  recipeList: state.recipe.recipieList,
-  
+  // recipeList: state.recipe.recipieList,
 });
 
 // mapDispatchToProps
 const mapDispatchToProps = dispatch => ({
   // need to better flesh out actions, then map below
-  logIn: () => dispatch(actions.accountInfo()),
+  // logIn: () => dispatch(actions.accountInfo()),
   createRecipe: () => dispatch(actions.recipeCreator())
 });
 
@@ -40,10 +39,10 @@ class MainContainer extends Component {
   render() {
     return(
       <div id="mainContainer">
-        {/* <NavBar 
-          createRecipe={this.props.createRecipe}
-        /> */}
-        <RecipeList />
+        <NavBarContainer 
+          // createRecipe={this.props.createRecipe}
+        />
+        <RecipesContainer />
       </div>
     );
   }
