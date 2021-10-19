@@ -20,8 +20,9 @@ const Recipe = props => {
    * unitOfMeasurement: '',
    * }]
    */
-  const ingredientsArray = props.ingredients.map((ingredient) => (
+  const ingredientsArray = props.ingredients.map((ingredient, index) => (
     <Ingredients
+      key={index}
       name={ingredient.name}
       quantity={ingredient.quantity}
       unitOfMeasurement={ingredient.unitOfMeasurement}
