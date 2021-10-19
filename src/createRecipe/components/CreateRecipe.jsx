@@ -1,36 +1,36 @@
 import React from 'react';
+import { Link, useHistory } from "react-router-dom";
 
 const CreateRecipe = props => {
-  // const handleClick = (e) => {
-  //   const textValue = document.getElementById('textBoxValue').value;
-  //   const sendingTheStuff = {
+  const history = useHistory();
+  const handleClick = (e) => {
+
+    const sendingTheStuff = {
+      recipeName: document.getElementById('recipeName').value,
+      ingredients: [{
+        name: document.getElementById('ingredientName').value,
+        quantity: document.getElementById('ingredientQuantity').value,
+        unitOfMeasurement: document.getElementById('ingredientUnit').value
+      }],
+      instructions: document.getElementById('instructions').value
+    };
+
+    fetch(`/api/recipes`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      }, 
+      body: JSON.stringify(sendingTheStuff)
+    })
+      .then(res => {
+        history.push('/main');
+      })
+      .catch(err => console.log("can't add recipe: " + JSON.stringify(err)));
 
 
-  //   };
-  //   store.dispatch(addWifuCreator(textValue));
-  // }
+
+  }
   
-  // K = # of ingredients
-  // let K = 1;
-
-  // ingreArray = [];
-  // for(let i = 0; i < K; i++){
-  //   ingreArray.push(<input type="text" name="ingre1"></input>);
-  // }
-
-  // [{},{}]
-
-  // render(){
-  //   return (<button onClick={this.addIngre} value='Add Ingredient'></button>{ingreArray});
-  // }
-
-  // accountId: state.accountId,
-  // account: state.account,
-  // recipeId: currentRecipeId,
-  // recipeName: action.payload.recipeName,
-  // ingredients: action.payload.ingredients, //need to make the array of objects in our payload
-  // instructions: action.payload.instructions,
-
   return (
     <section id="createRecipe">
       <fieldset id="newRecipe">
@@ -65,7 +65,8 @@ const CreateRecipe = props => {
               <input type="text" id="instructions" />
             </li>
           </ul>
-          <button onClick='x'>Submit</button>
+          {/* <Link to="/main"><button onClick={(e) => handleClick(e)} id="CREATERECI">CREATE RECIPE BUT</button></Link> */}
+          <button onClick={(e) => handleClick(e)}>Submit</button>
         </form>
       </fieldset>
     </section>
