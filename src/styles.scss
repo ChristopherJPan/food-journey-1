@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&family=Lobster&display=swap');
 * { font-family: Raleway, Arial; font-weight: 400; }
-body { margin: 0; padding: 0; }
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(119, 211, 44);
+}
 h1,h2,h3,h4,h5,h6,p { margin: 0; }
 
 h1 {
@@ -33,8 +37,8 @@ div#mainContainer {
       background: #fff;
       box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.1);
       &:hover {
-        background-color: #eef;
-        border: 0.1em solid #aaf;
+        background-color: rgb(247, 250, 54);
+        border: 0.1em solid rgb(233, 85, 27);
       }
     }
   }
@@ -47,6 +51,7 @@ div#mainContainer {
     padding-bottom: 2em;
     border-radius: 0.5em;
     box-shadow: 0 0.5em 1em 0.2em rgba(0,0,0,0.2);
+    background-color: rgb(248, 193, 73);
     h2 {
       margin: 0.5em;
     }
@@ -91,6 +96,9 @@ div#createRecipeContainer {
         }
       }
     }
+    fieldset#newRecipe {
+      background-color: rgb(248, 193, 73);
+    }
     fieldset#ingredients {
       padding: 1em 0;
     }
@@ -103,8 +111,8 @@ div#createRecipeContainer {
       background: #fff;
       box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.1);
       &:hover {
-        background-color: #eef;
-        border: 0.1em solid #aaf;
+        background-color: rgb(247, 250, 54);
+        border: 0.1em solid rgb(233, 85, 27);
       }
     }
   }
@@ -117,6 +125,7 @@ fieldset {
   padding: 0.1em 0;
   border-radius: 0.5em;
   box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.2);
+  background-color: rgb(70, 245, 207);
   legend {
     padding: 0.3em;
     margin-left: 1em;
