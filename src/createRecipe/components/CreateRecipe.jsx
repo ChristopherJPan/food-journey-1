@@ -62,7 +62,7 @@ const CreateRecipe = props => {
               <input type="text" id="instructions" />
             </li>
           </ul>
-          <Link to="/"><button onClick={(e) => handleClick(e)}>Submit</button></Link>
+          <button onClick={(e) => handleClick(e)}>Submit</button>
         </form>
       </fieldset>
     </section>
