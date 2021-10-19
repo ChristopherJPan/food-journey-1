@@ -51,7 +51,7 @@ div#mainContainer {
     padding-bottom: 2em;
     border-radius: 0.5em;
     box-shadow: 0 0.5em 1em 0.2em rgba(0,0,0,0.2);
-    background-color: rgb(248, 193, 73);
+    background-color: ghostwhite;
     h2 {
       margin: 0.5em;
     }
@@ -97,7 +97,7 @@ div#createRecipeContainer {
       }
     }
     fieldset#newRecipe {
-      background-color: rgb(248, 193, 73);
+      background-color: ghostwhite;
     }
     fieldset#ingredients {
       padding: 1em 0;
@@ -125,7 +125,7 @@ fieldset {
   padding: 0.1em 0;
   border-radius: 0.5em;
   box-shadow: 0 0.2em 0.3em 0.1em rgba(0,0,0,0.2);
-  background-color: rgb(70, 245, 207);
+  background-color: rgb(183, 240, 176);
   legend {
     padding: 0.3em;
     margin-left: 1em;
