@@ -26,7 +26,7 @@ router.post('/recipes',
   }
 );
 
-router.get('/recipeByIngredient',
+router.post('/recipeByIngredient',
   recipeController.getRecipesByIngredient,
   (req, res) => {
     return res.status(200).json(res.locals.recipeList);
