@@ -16,8 +16,6 @@ const recipeController = {};
 
 // TODO: helper function for get Recipes
 
-
-
 recipeController.getRecipes = (req, res, next) => {
   // make query text
   const queryText = 'SELECT r._id AS recipe_id, r.name AS recipe_name, r.directions AS recipe_instructions, user_name, i.name as ingredient_name, quantity, units ' +
@@ -198,7 +196,6 @@ recipeController.createRecipe = (req, res, next) => {
   const ingredients = res.locals.ingredients;
   // [{id: name: quantity: units: }]
   for(item of ingredients){
-
     createQuery+=` INSERT INTO makings (recipe_id, ingredient_id, quantity, units) VALUES (currval('recipes__id_seq'), ${item.id}, ${item.quantity}, '${item.units}');`;
   }
 

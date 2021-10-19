@@ -26,9 +26,6 @@ const CreateRecipe = props => {
         history.push('/main');
       })
       .catch(err => console.log("can't add recipe: " + JSON.stringify(err)));
-
-
-
   }
   
   return (
@@ -65,8 +62,7 @@ const CreateRecipe = props => {
               <input type="text" id="instructions" />
             </li>
           </ul>
-          {/* <Link to="/main"><button onClick={(e) => handleClick(e)} id="CREATERECI">CREATE RECIPE BUT</button></Link> */}
-          <button onClick={(e) => handleClick(e)}>Submit</button>
+          <Link to="/"><button onClick={(e) => handleClick(e)}>Submit</button></Link>
         </form>
       </fieldset>
     </section>
