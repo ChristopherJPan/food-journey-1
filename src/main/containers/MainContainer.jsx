@@ -34,9 +34,7 @@ class MainContainer extends Component {
   componentDidMount(){
     fetch(`/api/recipes`)
       .then(res => res.json())
-      // .then(data => store.dispatch(getInitialState(data)))
-      // .then(data => console.log(data))
-      .then(data => this.props.getState(data))
+      .then(data => this.props.getState(data));
   }
 
   render() {

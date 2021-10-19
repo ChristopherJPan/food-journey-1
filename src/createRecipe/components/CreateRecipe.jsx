@@ -3,9 +3,7 @@ import { Link } from "react-router-dom";
 
 const CreateRecipe = props => {
   const handleClick = (e) => {
-    console.log("MAY THE WORLD BE RULED BY WIFUS")
 
-    // const textValue = document.getElementById('textBoxValue').value;
     const sendingTheStuff = {
       recipeName: document.getElementById('recipeName').value,
       ingredients: [{
@@ -15,40 +13,13 @@ const CreateRecipe = props => {
       }],
       instructions: document.getElementById('instructions').value
     };
-    console.log(sendingTheStuff);
 
-
-  
     fetch(`/api/recipes`)
       .then(res => res.json())
-        // .then(data => store.dispatch(getInitialState(data)))
-        // .then(data => console.log(data))
       .then(data => this.props.createRecipe(data))
 
     props.createRecipe(sendingTheStuff)
-    // store.dispatch(addWifuCreator(textValue));
   }
-  
-  // K = # of ingredients
-  // let K = 1;
-
-  // ingreArray = [];
-  // for(let i = 0; i < K; i++){
-  //   ingreArray.push(<input type="text" name="ingre1"></input>);
-  // }
-
-  // [{},{}]
-
-  // render(){
-  //   return (<button onClick={this.addIngre} value='Add Ingredient'></button>{ingreArray});
-  // }
-
-  // accountId: state.accountId,
-  // account: state.account,
-  // recipeId: currentRecipeId,
-  // recipeName: action.payload.recipeName,
-  // ingredients: action.payload.ingredients, //need to make the array of objects in our payload
-  // instructions: action.payload.instructions,
 
   return (
     <section id="createRecipe">
@@ -84,8 +55,7 @@ const CreateRecipe = props => {
               <input type="text" id="instructions" />
             </li>
           </ul>
-          {/* <Link to="/main"><button onClick={(e) => handleClick(e)} id="CREATERECI">CREATE RECIPE BUT</button></Link> */}
-          <Link to="/main"><button onClick={(e) => handleClick(e)}>Submit</button></Link>
+          <Link to="/"><button onClick={(e) => handleClick(e)}>Submit</button></Link>
         </form>
       </fieldset>
     </section>
