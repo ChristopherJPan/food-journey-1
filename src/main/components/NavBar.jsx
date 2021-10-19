@@ -12,7 +12,7 @@ import {Link} from "react-router-dom";
 
 const NavBar = (props) => (
   <div id="navBar">
-    <Link to="/CreateRecipe"><button onClick={() => console.log('Helo World')} id="createNewRecipe">Create New Recipe</button></Link>
+    <Link to="/createrecipe"><button onClick={() => console.log('Helo World')} id="createNewRecipe">Create New Recipe</button></Link>
   </div>
 );
 

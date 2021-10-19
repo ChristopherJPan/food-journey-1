@@ -16,7 +16,6 @@ const recipeController = {};
 // helper function for get Recipes
 
 recipeController.getRecipes = (req, res, next) => {
-  console.log('in getRecipes');
   // make query text
   const queryText = 'SELECT r._id AS recipe_id, r.name AS recipe_name, r.directions AS recipe_instructions, user_name, i.name as ingredient_name, quantity, units ' +
     'FROM recipes r ' +
@@ -40,8 +39,6 @@ recipeController.getRecipes = (req, res, next) => {
       const recipesObj = {}; // key: id, val: recipe object
       // for every entry (using recipe_id)
       for (const entry of result.rows) {
-        console.log(entry.ingredient_name);
-
         // ingredient object
         const ingredient = {
           name: entry.ingredient_name,
@@ -62,15 +59,13 @@ recipeController.getRecipes = (req, res, next) => {
         }
         // otherwise push the new ingredient
         else {
-          console.log('more than 1 ingredient');
           recipesObj[String(entry.recipe_id)].ingredients.push(ingredient);
         }
 
       }
-
-      console.log(recipesObj);
-
+      
       res.locals.recipeList = Object.values(recipesObj);
+
       return next();
     }
   })
@@ -100,8 +95,6 @@ recipeController.getUserRecipes = (req, res, next) => {
       const recipesObj = {}; // key: id, val: recipe object
       // for every entry (using recipe_id)
       for (const entry of result.rows) {
-        console.log(entry.ingredient_name);
-
         // ingredient object
         const ingredient = {
           name: entry.ingredient_name,
@@ -122,13 +115,11 @@ recipeController.getUserRecipes = (req, res, next) => {
         }
         // otherwise push the new ingredient
         else {
-          console.log('more than 1 ingredient');
           recipesObj[String(entry.recipe_id)].ingredients.push(ingredient);
         }
 
       }
-
-      console.log(recipesObj);
+      // console.log(recipesObj);
 
       res.locals.recipeList = Object.values(recipesObj);
       return next();
@@ -140,11 +131,8 @@ recipeController.getUserRecipes = (req, res, next) => {
 
 recipeController.createRecipe = (req, res, next) => {
   //Only one user
-  console.log('THE BODY OF REQUEST = ', req.body);
   res.locals.userId = 1;
   let createQuery = `INSERT INTO recipes (name, user_id, directions) VALUES ('${req.body.recipeName}', ${res.locals.userId}, '${req.body.instructions}');`;
-
-
 
   const ingredients = res.locals.ingredients;
   // [{id: name: quantity: units: }]
@@ -154,7 +142,6 @@ recipeController.createRecipe = (req, res, next) => {
 
   db.query(createQuery, (err, data) => {
     if(err) return next(err);
-    console.log(data);
     return next();
   });
 
