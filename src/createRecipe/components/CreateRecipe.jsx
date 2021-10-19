@@ -23,7 +23,7 @@ const CreateRecipe = props => {
       body: JSON.stringify(sendingTheStuff)
     })
       .then(res => {
-        history.push('/main');
+        history.push('/');
       })
       .catch(err => console.log("can't add recipe: " + JSON.stringify(err)));
   }
