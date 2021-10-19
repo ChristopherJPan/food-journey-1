@@ -29,7 +29,7 @@ class NavBarContainer extends Component {
   render() {
     return(
       <div id="navBarContainer">
-        <NavBar />
+        <NavBar getState = {this.props.getState}/>
       </div>
     )
   }

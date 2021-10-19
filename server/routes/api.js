@@ -26,6 +26,13 @@ router.post('/recipes',
   }
 );
 
+router.post('/recipeByIngredient',
+  recipeController.getRecipesByIngredient,
+  (req, res) => {
+    return res.status(200).json(res.locals.recipeList);
+  }
+);
+
 
 router.post('/login',
   userController.verifyUser,

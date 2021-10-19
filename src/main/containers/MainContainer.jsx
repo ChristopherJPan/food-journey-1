@@ -29,6 +29,27 @@ const mapDispatchToProps = dispatch => ({
 class MainContainer extends Component {
   constructor(props) {
     super(props);
+    // const handleClick = (e) => {
+    //   const fetchBody = { searchIngredient: document.getElementById('ingredientName').value};
+
+    //   // so button is working and fetching the data just need to change the state
+    //   // ^^^^^^^^^^^^^^^^^^
+    //   //hooray
+
+    //   console.log('we are working!!!');
+
+    //   fetch(`/api/recipeByIngredient`, {
+    //     method: "POST",
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //     },
+    //     body: JSON.stringify(fetchBody)
+    //   })
+    //   .then(res => res.json())
+    //   .then(res => console.log(res))
+    //   // .then(data => this.props.getState(data));
+    //   .catch(err => console.log("can't add recipe: " + JSON.stringify(err)));
+    // }
   }
 
   componentDidMount(){
@@ -37,11 +58,16 @@ class MainContainer extends Component {
       .then(data => this.props.getState(data));
   }
 
+
+
+
   render() {
     return(
       <div id="mainContainer">
-        <NavBarContainer />
+        <NavBarContainer getState = {this.props.getState}/>
         <RecipesContainer />
+        {/* <input type="text" id="ingredientName" />
+        <button onClick={(e) => handleClick(e)}>Submit</button> */}
       </div>
     );
   }
