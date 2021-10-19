@@ -13,19 +13,13 @@ import { Link } from "react-router-dom";
 const Login = props => {
   const handleClick = (e) => {
     //we will be sending an action here to our reducer
-    console.log('wifus are the lifu')
-    // const textValue = document.getElementById('textBoxValue').value;
-    // const sendingTheStuff = {
-
-    // };
-    // store.dispatch(addWifuCreator(textValue));
   }
 
   return (
     <div>
-      <p>Wifus Are Lifu</p>
-      <Link to="/main"><button onClick={(e) => handleClick(e)} id="THISISAWIFUBUTTON">WIFUS WILL RULE THE WORLD</button></Link>
-      {/* <button onClick={(e) => handleClick(e)}>Add Wifu</button> */}
+      <h2>Login Page</h2>
+      <Link to="/main"><button onClick={(e) => handleClick(e)} id="login">Login</button></Link>
+      {/* <button onClick={(e) => handleClick(e)}>Login</button> */}
     </div>
 
   );

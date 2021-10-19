@@ -36,7 +36,6 @@ class LoginContainer extends Component {
   render() {
     return(
       <div id="loginContainer">
-        hellooo my wifuuusss~!!!
         <Login />
       </div>
     );
