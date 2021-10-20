@@ -13,8 +13,6 @@ import CreateRecipeContainer from './createRecipe/containers/CreateRecipeContain
 // import LoginPage from './loginPage/containers/LoginContainer';
 import { Switch, Route } from "react-router-dom";
 
-
-
 class App extends Component {
   constructor(props){
     super(props);
@@ -33,4 +31,3 @@ class App extends Component {
   }
 }
 
-export default App;
