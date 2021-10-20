@@ -102,3 +102,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# for bundle
+public/bundle.js
