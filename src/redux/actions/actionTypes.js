@@ -5,3 +5,9 @@ export const LOGIN = 'LOGIN';
 export const SEARCHING = 'SEARCHING';
 
 export const GET_INITIAL_STATE = 'GET_INITIAL_STATE';
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+
+export const PRODUCTS_RECEIVED = 'PRODUCTS_RECEIVED';
+
+export const LOGIN_UNSUCCESSFUL = 'LOGIN_UNSUCCESSFUL';

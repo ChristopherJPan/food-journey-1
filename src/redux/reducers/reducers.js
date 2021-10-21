@@ -7,7 +7,8 @@ const initalState = {
   accountLastName: '',
   accountEmail: '',
   recipeList: [],
-  currentRecipeId: 0
+  currentRecipeId: 0,
+  isLoggedIn: false,
 };
 
 const recipeReducer = (state = initalState, action) => {
@@ -42,8 +43,20 @@ const recipeReducer = (state = initalState, action) => {
     // case types.
     // create a recipe
 
-    // logining in
-
+    // The products received from the successful login
+    case types.PRODUCTS_RECEIVED: {
+      // return state with new information
+      // return isLoggedIn = true
+      console.log('PRODUCTS_RECEIVED\'s action.payload: ',action.payload)
+      console.log('im in products received, reducer');
+      return {...action.payload, isLoggedIn: true};
+    }
+    // unsuccessful login  
+    case types.LOGIN_UNSUCCESSFUL: {
+      console.log('Unsuccessful Login');
+      return state;
+    }  
+      
     // searching for recipe
 
 
@@ -52,8 +65,6 @@ const recipeReducer = (state = initalState, action) => {
       return state;
     }
   }
-
-
 }
 
 export default recipeReducer;

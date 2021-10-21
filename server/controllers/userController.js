@@ -24,7 +24,7 @@ RES
 
 userController.verifyUser = (req, res, next) => {
   
-  const queryText = "SELECT * FROM users WHERE user_name = '" + String(req.body.account) + "';"
+  const queryText = "SELECT * FROM users WHERE user_name = '" + String(req.body.username) + "';"
   db.query(queryText, (err, result) => {
     if (err) {
       console.log(err.stack);
@@ -49,7 +49,7 @@ userController.verifyUser = (req, res, next) => {
         res.locals.currentRecipeId = null; // talk about this as a group
       }
 
-      console.log('result of userController.verifyUser', result);
+      // console.log('result of userController.verifyUser', result.rows);
       // otherwise incorrect password
       return  next();
     }
