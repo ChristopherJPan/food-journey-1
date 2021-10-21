@@ -10,24 +10,21 @@
 import React, {Component} from 'react';
 import MainContainer from './main/containers/MainContainer';
 import CreateRecipeContainer from './createRecipe/containers/CreateRecipeContainer';
-// import LoginPage from './loginPage/containers/LoginContainer';
+import LoginPage from './login/components/Login';
 import { Switch, Route } from "react-router-dom";
 
-class App extends Component {
-  constructor(props){
-    super(props);
-  }
-
-  render() {
-    return (
-      <div id="container">
+// Changed App into a functional component
+const App = () => {
+  return (
+    <div id="container">
         <Switch>
-          {/* <Route path="/" component={LoginPage} exact /> */}
-          <Route path="/" component={MainContainer} exact />
+          <Route path="/" component={LoginPage} exact />
+          <Route path="/main" component={MainContainer} exact />
           <Route path="/CreateRecipe" component={CreateRecipeContainer} />
         </Switch>
-      </div>
-    );
-  }
+    </div>
+  )
 }
 
+
+export default App;
