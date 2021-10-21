@@ -1,76 +1,72 @@
 {
-	"name": "food-journey",
-	"version": "1.0.0",
-	"description": "Food recipes",
-	"main": "index.js",
-	"scripts": {
-		"start": "cross-env NODE_ENV=production node server/server.js",
-		"build": "cross-env NODE_ENV=production webpack",
-		"dev": "cross-env NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack serve --open --hot\"",
-		"test": "cross-env NODE_ENV=development jest --verbose"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodesmithLLC-goblin-shark/food-journey.git"
-	},
-	"author": "Crys Lim, Chris Pan, Michael Pay https://github.com/airpick <michael.edward.pay@gmail.com>, Tu Pham",
-	"license": "MIT",
-	"bugs": {
+  "name": "food-journey",
+  "version": "1.0.0",
+  "description": "Food recipes",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node server/server.js",
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development concurrently \"nodemon server/server.js\" \"webpack serve --open --hot\"",
+    "test": "cross-env NODE_ENV=development jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodesmithLLC-goblin-shark/food-journey.git"
+  },
+  "author": "Crys Lim, Chris Pan, Michael Pay https://github.com/airpick <michael.edward.pay@gmail.com>, Tu Pham",
+  "license": "MIT",
+  "bugs": {
     "url": "https://github.com/CodesmithLLC-goblin-shark/food-journey/issues"
-	},
-	"homepage": "https://github.com/CodesmithLLC-goblin-shark/food-journey#readme",
-	"jest": {
+  },
+  "homepage": "https://github.com/CodesmithLLC-goblin-shark/food-journey#readme",
+  "jest": {
     "globalSetup": "./jest-setup.js",
-		"globalTeardown": "./jest-teardown.js"
-	},
-	"dependencies": {
+    "globalTeardown": "./jest-teardown.js"
+  },
+  "dependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.14.5",
-		"@babel/runtime": "^7.15.4",
-		"bcryptjs": "^2.4.3",
-		"body-parser": "^1.19.0",
-		"cookie-parser": "^1.4.5",
+    "@babel/runtime": "^7.15.4",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
     "css-loader": "^6.4.0",
-		"express": "^4.17.1",
-		"pg": "^8.7.1",
-		"react": "^17.0.2",
-		"react-dom": "^17.0.2",
-		"react-redux": "^7.2.5",
-		"react-router": "^5.2.1",
-		"react-router-dom": "^5.3.0",
-		"react-test-utils": "0.0.1",
-		"redux": "^4.1.1",
-		"regenerator-runtime": "^0.13.9"
-	},
-	"devDependencies": {
+    "express": "^4.17.1",
+    "pg": "^8.7.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "react-router": "^5.2.1",
+    "react-router-dom": "^5.3.0",
+    "react-test-utils": "0.0.1",
+    "redux": "^4.1.1",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
     "@babel/core": "^7.15.8",
-		"@babel/plugin-transform-runtime": "^7.15.8",
-		"@babel/preset-env": "^7.15.8",
-		"@babel/preset-react": "^7.14.5",
-		"babel-core": "^6.26.3",
-		"babel-jest": "^27.3.1",
-		"babel-loader": "^8.2.2",
-		"babel-polyfill": "^6.26.0",
-		"concurrently": "^6.3.0",
+    "@babel/plugin-transform-runtime": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^27.3.1",
+    "babel-loader": "^8.2.2",
+    "babel-polyfill": "^6.26.0",
+    "concurrently": "^6.3.0",
     "cross-env": "^7.0.3",
-		"enzyme": "^3.11.0",
-		"enzyme-adapter-react-16": "^1.15.6",
-		"enzyme-to-json": "^3.6.2",
-		"eslint": "^8.0.1",
-		"eslint-config-airbnb": "^18.2.1",
-		"eslint-plugin-import": "^2.25.2",
-		"eslint-plugin-jsx-a11y": "^6.4.1",
-		"eslint-plugin-react": "^7.26.1",
-		"html-webpack-plugin": "^5.4.0",
-		"jest": "^27.3.1",
-		"jest-puppeteer": "^6.0.0",
-		"nodemon": "^2.0.13",
-		"redux-devtools-extension": "^2.13.9",
-		"sass": "^1.43.2",
-		"sass-loader": "^12.2.0",
-		"style-loader": "^3.3.0",
-		"supertest": "^6.1.6",
-		"webpack": "^5.58.2",
-		"webpack-cli": "^4.9.0",
-		"webpack-dev-server": "^4.3.1"
-	}
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "eslint": "^8.0.1",
+    "html-webpack-plugin": "^5.4.0",
+    "jest": "^27.3.1",
+    "jest-puppeteer": "^6.0.0",
+    "nodemon": "^2.0.13",
+    "redux-devtools-extension": "^2.13.9",
+    "sass": "^1.43.2",
+    "sass-loader": "^12.2.0",
+    "style-loader": "^3.3.0",
+    "supertest": "^6.1.6",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
+  }
 }
