@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 
-const RecipeIngredientBox = ({ handleAdd }) => (
+const RecipeIngredientBox = ({ id, handleDeleteIngredient }) => (
   <div>
     <fieldset id="ingredients">
       <legend>Ingredient</legend>
@@ -17,8 +17,7 @@ const RecipeIngredientBox = ({ handleAdd }) => (
           <label htmlFor="ingredientUnit">Unit of Measurement</label>
           <input type="text" id="ingredientUnit" />
         </li>
-        <button onClick={() => console.log('u removed something')}>Remove Ingredient</button>
-        <button onClick={handleAdd}>Another Ingredient</button>
+        <button id={id} onClick={() => handleDeleteIngredient(id)}>Remove Ingredient</button>
       </ul>
     </fieldset>
   </div>
