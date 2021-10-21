@@ -30,6 +30,18 @@ export const getInitialState = data => ({
   payload: data,
 });
 
+// SIGNUP
+
+export const signUp = data => ({
+  type: types.SIGNUP,
+  payload: data,
+});
+
+export const signUpSuccess = data => ({
+  type: types.SIGNUP_SUCCESS,
+  payload: data,
+})
+
 export const productsReceived = userInfo => ({
   type: types.PRODUCTS_RECEIVED,
   payload: userInfo

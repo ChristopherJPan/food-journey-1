@@ -42,7 +42,8 @@ const recipeReducer = (state = initalState, action) => {
 
     // case types.
     // create a recipe
-
+    // searching for recipe
+      
     // The products received from the successful login
     case types.PRODUCTS_RECEIVED: {
       // return state with new information
@@ -52,14 +53,23 @@ const recipeReducer = (state = initalState, action) => {
       return {...action.payload, isLoggedIn: true};
     }
     // unsuccessful login  
-    case types.LOGIN_UNSUCCESSFUL: {
+    case types.LOGIN_FAILURE: {
       console.log('Unsuccessful Login');
       return state;
     }  
       
-    // searching for recipe
+    // successful signup
+    case types.SIGNUP_SUCCESS: {
+      console.log('message in reducer: ', payload);
+      return state;
+    }
 
-
+    
+    case types.SIGNUP_FAILURE: {
+      console.log('Unsuccessful Signup: ', payload);
+      return state;
+    }  
+    
     default:{
       console.log('Reducer in default')
       return state;

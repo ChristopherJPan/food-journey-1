@@ -74,3 +74,8 @@ class MainContainer extends Component {
 }
 
 export default connect(null, mapDispatchToProps)(MainContainer);
+
+
+// fetch(`/api/recipes`)
+//       .then(res => res.json())
+//       .then(data => this.props.getState(data));

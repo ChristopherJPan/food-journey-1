@@ -10,7 +10,7 @@ router.get('/recipes',
     console.log('here');
     return next();
   },
-  recipeController.getRecipes,
+  recipeController.getUserRecipes,
   (req, res) => {
     return res.status(200).json(res.locals.recipeList);
   }
@@ -39,6 +39,15 @@ router.post('/login',
   recipeController.getUserRecipes,
   (req, res) => {
     return res.status(200).json({...res.locals});
+  }
+);
+
+router.post('/signup',
+  userController.createUser,
+  // recipeController.getUserRecipes,
+  (req, res) => {
+    // return res.status(200).json({...res.locals});
+    return res.sendStatus(200);
   }
 );
 

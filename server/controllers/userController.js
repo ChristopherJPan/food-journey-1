@@ -57,4 +57,44 @@ userController.verifyUser = (req, res, next) => {
 
 }
 
+userController.createUser = (req, res, next) => {
+
+  const createUserQuery = 'INSERT INTO public.users (first_name, last_name, user_name, password, email)\
+  VALUES ( $1, $2, $3, $4, $5)'
+  const params = [
+    req.body.firstName,
+    req.body.lastName,
+    req.body.username,
+    req.body.password,
+    req.body.email
+  ];
+  db.query(createUserQuery, params)
+    .then(data=>{
+      res.locals = data
+      res.locals.message = 'Account Successfully Created, Please Log in'
+    })
+    .then(data=>next())
+    .catch(err=>next(err));
+}
+
+// INSERT INTO public.users VALUES (1, 'Crys', 'Lim', 'clim', 'password123', 'myemail@gmail.com');
+// const addQuery = 'INSERT INTO people (name,mass,hair_color,skin_color,eye_color,birth_year,gender,species_id,homeworld_id,height) \
+//   VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)';
+//   const rqb = req.body;
+//   const params = [
+//     rqb.name,
+//     rqb.mass,
+//     rqb.hair_color,
+//     rqb.skin_color,
+//     rqb.eye_color,
+//     rqb.birth_year,
+//     rqb.gender,
+//     rqb.species_id,
+//     rqb.homeworld_id,
+//     rqb.height
+//   ];
+//   console.log(req.body);
+//   // const 
+//   db
+//     .query(addQuery, params)
 module.exports = userController;
