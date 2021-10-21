@@ -28,19 +28,19 @@ import Login from '../components/Login';
 //   // logIn: () => dispatch(actions.accountInfo()),
 // });
 
-class LoginContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
+// class LoginContainer extends Component {
+//   constructor(props) {
+//     super(props);
+//   }
 
-  render() {
-    return(
-      <div id="loginContainer">
-        <Login />
-      </div>
-    );
-  }
-}
+//   render() {
+//     return(
+//       <div id="loginContainer">
+//         <Login />
+//       </div>
+//     );
+//   }
+// }
 
-export default LoginContainer;
+// export default LoginContainer;
 // export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer); // will be required later upon full Redux integration

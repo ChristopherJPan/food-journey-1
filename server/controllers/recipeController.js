@@ -120,7 +120,7 @@ recipeController.getUserRecipes = (req, res, next) => {
         }
 
       }
-      // console.log(recipesObj);
+      console.log('recipesObj in recipeController ',recipesObj);
 
       res.locals.recipeList = Object.values(recipesObj);
       return next();

@@ -29,3 +29,8 @@ export const getInitialState = data => ({
   type: types.GET_INITIAL_STATE,
   payload: data,
 });
+
+export const productsReceived = userInfo => ({
+  type: types.PRODUCTS_RECEIVED,
+  payload: userInfo
+})

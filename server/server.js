@@ -9,7 +9,9 @@ const app = express();
 
 
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}));
+// changed here
+app.use(express.urlencoded({extended: true}));
+// app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.resolve(__dirname, '../images')));
 app.use(cookieParser());
 
