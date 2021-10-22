@@ -31,6 +31,7 @@ class NavBarContainer extends Component {
       <div id="navBarContainer">
         <NavBar getState = {this.props.getState}/>
       </div>
+      
     )
   }
 }

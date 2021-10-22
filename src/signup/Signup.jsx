@@ -16,9 +16,13 @@ const Signup = () => {
   const password = useFormInput('');
 
   const dispatch = useDispatch();
-
+  // setting message state
+  const { message, isSignedUp } = useSelector(state => state.auth);
+  
+  //reset state back to null
   // initialize accountInfo to be passed after submit
   const handleClick = () => {
+
     const accountInfo = {
       firstName: firstName.value,
       lastName: lastName.value,
@@ -27,13 +31,28 @@ const Signup = () => {
       password: password.value
     };
     // dispatch signup action
+
+    // console.log('accountInfo: ', accountInfo)
+    for (let key in accountInfo) {
+  
+      if (!accountInfo[key].length) accountInfo[key] = null;
+    }
+
     dispatch({ type: 'SIGNUP', payload: accountInfo });
+    
+  }
+  
+  if (isSignedUp) {
+    return <Redirect exact to='/' />
   }
 
   return (
     <div id='signup'>
       <h2>Signup</h2>
       <br />
+
+      <Link to='/'><button>Back to Login Page</button></Link>
+
       <div>
         <input type='text' placeholder='Enter your first name' required {...firstName} />
       </div>
@@ -50,6 +69,9 @@ const Signup = () => {
         <input type='text' placeholder='Enter your password' autoComplete='new-password' required {...password} />
       </div>
       <button onClick={handleClick} id='signup'>Signup</button>
+      <div>
+        {message}
+      </div>
     </div>
   );
 };

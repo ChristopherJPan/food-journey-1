@@ -19,12 +19,8 @@ import Signup from './signup/Signup';
 const App = () => {
 
   // using the state 'isLoggedIn' to handle redirects if false
-  const { isLoggedIn } = useSelector(state=>state.recipe)
+  const { isLoggedIn } = useSelector(state=>state.auth)
   console.log('app.jsx\'s isLoggedIn', isLoggedIn)
-  // if (!isLoggedIn) {
-  //   return <Redirect to="/" />
-  // }
-
 
   return (
     <div id="container">

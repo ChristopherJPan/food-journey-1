@@ -6,11 +6,6 @@ export const recipeCreator = recipeInfo => ({
   payload: recipeInfo,
 });
 
-export const loggingIn = accountInfo => ({
-  type: types.LOGIN,
-  payload: accountInfo,
-});
-
 export const searchingForRecipe = recipeName => ({
   type: types.SEARCHING,
   payload: recipeName,
@@ -30,19 +25,39 @@ export const getInitialState = data => ({
   payload: data,
 });
 
-// SIGNUP
 
-export const signUp = data => ({
-  type: types.SIGNUP,
-  payload: data,
+// LOGIN
+export const loggingIn = accountInfo => ({
+  type: types.LOGIN,
+  payload: accountInfo,
 });
 
-export const signUpSuccess = data => ({
-  type: types.SIGNUP_SUCCESS,
-  payload: data,
+export const loginSuccess = userInfo => ({
+  type: types.LOGIN_SUCCESS,
+  payload: userInfo
+})
+
+export const loginFailure = errorMessage => ({
+  type: types.LOGIN_FAILURE,
+  payload: errorMessage
 })
 
 export const productsReceived = userInfo => ({
   type: types.PRODUCTS_RECEIVED,
   payload: userInfo
 })
+
+// SIGNUP
+export const signUp = accountInfo => ({
+  type: types.SIGNUP,
+  payload: accountInfo,
+});
+
+export const signUpSuccess = () => ({
+  type: types.SIGNUP_SUCCESS,
+});
+
+export const signUpFailure = message => ({
+  type: types.SIGNUP_FAILURE,
+  payload: message,
+});

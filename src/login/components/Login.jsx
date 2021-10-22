@@ -20,17 +20,24 @@ const Login = props => {
   const password = useFormInput('');
   // initialize useDispatch Redux Hook to dispatch actions to reducer
   const dispatch = useDispatch();
-
+  // error message from state
+  const { message } = useSelector(state => state.auth);
   // handleClick to dispatch login action with accountInfo
   const handleClick = () => {
     const accountInfo = {
       username: username.value,
       password: password.value,
     };
-    // use a Redux hook to dispatch the action (useDispatch and/or useSelector)
-    dispatch({ type: 'LOGIN', payload: accountInfo });
+    if (username.value === '' || password.value === '') {
+      // dispatch to display the error message
+      dispatch({ type: 'LOGIN', payload: {} });
+    } else {
+      // use a Redux hook to dispatch the action (useDispatch and/or useSelector)
+      dispatch({ type: 'LOGIN', payload: accountInfo });
+    }
   }
 
+  
   return (
     <div id='login'>
       <br/>
@@ -46,7 +53,10 @@ const Login = props => {
           autoComplete='current-password' required />
       </div>
       <button onClick={handleClick} id="login">Login</button>
-      {/* <Link><button onClick */}
+      <Link to='/signup'><button>Sign Up</button></Link>
+      <div>
+        <p>{message}</p>
+      </div>
     </div>
   );
 };
