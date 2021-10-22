@@ -11,8 +11,11 @@ router.get('/recipes',
     console.log('here');
     return next();
   },
-  recipeController.getRecipes,
-  (req, res) => res.status(200).json(res.locals.recipeList));
+  recipeController.getUserRecipes,
+  (req, res) => {
+    return res.status(200).json(res.locals.recipeList);
+  }
+);
 
 router.post('/recipes',
   ingredientController.getIngredients,
@@ -28,7 +31,21 @@ router.post('/recipeByIngredient',
 router.post('/login',
   userController.verifyUser,
   recipeController.getUserRecipes,
-  (req, res) => res.status(200).json({ ...res.locals }));
+  (req, res) => {
+    return res.status(200).json({...res.locals});
+  }
+);
+
+router.post('/signup',
+  userController.createUser,
+  // recipeController.getUserRecipes,
+  (req, res) => {
+    // return res.status(200).json({...res.locals});
+    return res.sendStatus(200);
+  }
+);
+
+
 
 router.delete('/recipe/:id',
   recipeController.deleteMakings,

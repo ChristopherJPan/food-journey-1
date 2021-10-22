@@ -32,10 +32,14 @@ const NavBar = (props) => {
     .then(data => props.getState(data));
     // .catch(err => console.log("can't add recipe: " + JSON.stringify(err)));
   }
-
-  return(
+  // const logoutClick = () => {
+    
+  // }
+  
+  return (
     <div id="navBar">
       <Link to="/createrecipe"><button onClick={() => console.log('Helo World')} id="createNewRecipe">Create New Recipe</button></Link>
+      {/* <button onClick={logoutClick}>Logout</button> */}
       <div>
       <input type="text" id="ingredientName" />
       <button onClick={(e) => handleClick(e)}>Submit</button>

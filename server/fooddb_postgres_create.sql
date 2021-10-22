@@ -78,6 +78,7 @@ ALTER TABLE public.makings ADD CONSTRAINT "makings_fk1" FOREIGN KEY ("ingredient
 
 
 INSERT INTO public.users VALUES (1, 'Crys', 'Lim', 'clim', 'password123', 'myemail@gmail.com');
+-- INSERT INTO public.users VALUES (2, 'Jeff', 'Sul', 'jsul', 'test', 'myemail2@gmail.com');
 
 INSERT INTO public.ingredients VALUES (1, 'Bun', NULL);
 INSERT INTO public.ingredients VALUES (2, 'Patty', 2);

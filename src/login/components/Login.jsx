@@ -10,6 +10,9 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+import ImportantFunctions from '../../ImportantFunctions.jsx'
+
+const { useFormInput } = ImportantFunctions;
 
 const Login = props => {
   // define our form functionality for each input field
@@ -17,61 +20,45 @@ const Login = props => {
   const password = useFormInput('');
   // initialize useDispatch Redux Hook to dispatch actions to reducer
   const dispatch = useDispatch();
-  
-  const { isLoggedIn } = useSelector((state) => state.recipe);
-
+  // error message from state
+  const { message } = useSelector(state => state.auth);
   // handleClick to dispatch login action with accountInfo
-
   const handleClick = () => {
     const accountInfo = {
       username: username.value,
       password: password.value,
     };
-    // use a Redux hook to dispatch the action (useDispatch and/or useSelector)
-    dispatch({ type: 'LOGIN', payload: accountInfo });
+    if (username.value === '' || password.value === '') {
+      // dispatch to display the error message
+      dispatch({ type: 'LOGIN', payload: {} });
+    } else {
+      // use a Redux hook to dispatch the action (useDispatch and/or useSelector)
+      dispatch({ type: 'LOGIN', payload: accountInfo });
+    }
   }
-  // login -> useDispatch(login action) -> actions -> LOGIN -> reducer (post)
+
   
-  if (isLoggedIn) {
-    return <Redirect to="/main" />;
-  }
-
-
   return (
-    <div>
+    <div id='login'>
+      <br/>
       <h2>Login Page</h2>
-      <input type='text' id='username' {...username}
-        placeholder='Username'
-        autoComplete='username' required />
-      <input type='text' id='password' {...password}
-        placeholder='Password'
-        autoComplete='current-password' required />
-      {/* <Link to="/main"> */}
-        <button onClick={handleClick} id="login">Login</button>
-        {/* </Link> */}
+      <div>
+        <input type='text' id='username' {...username}
+          placeholder='Username'
+          autoComplete='username' required />
+      </div>
+      <div>
+        <input type='text' id='password' {...password}
+          placeholder='Password'
+          autoComplete='current-password' required />
+      </div>
+      <button onClick={handleClick} id="login">Login</button>
+      <Link to='/signup'><button>Sign Up</button></Link>
+      <div>
+        <p>{message}</p>
+      </div>
     </div>
   );
 };
 
-// handle form inputs for both username and password
-const useFormInput = (initialVal) => {
-  const [value, setValue] = useState(initialVal);
-
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-  // returning object of attributes for inputs
-  return {
-    value,
-    onChange: handleChange
-  }
-};
-
 export default Login;
-
-// const { isLoggedIn } = useSelector(state => state.auth);
-
-
-// //  if (isLoggedIn) {
-//   return <Redirect to="/profile" />;
-// }
