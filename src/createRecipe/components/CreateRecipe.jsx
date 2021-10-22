@@ -46,27 +46,55 @@ const CreateRecipe = props => {
   }, [ingredientInputBoxes]);
 
   const handleClick = (e) => {
+    const ingredientNames = [];
+    const getNames = document.getElementsByClassName('ingredientName');
+    for (let ingredient of getNames) {
+      ingredientNames.push(ingredient.value);
+    }
+    console.log('ingredientNames, ', ingredientNames);
+
+    const ingredientQuantities = [];
+    const getQuantities = document.getElementsByClassName('ingredientQuantity');
+    for (let ingredient of getQuantities) {
+      ingredientQuantities.push(ingredient.value);
+    }
+    console.log('const ingredientQuantities, ', ingredientQuantities);
+
+    const ingredientUnits = [];
+    const getUnits = document.getElementsByClassName('ingredientUnit');
+    for (let ingredient of getUnits) {
+      ingredientUnits.push(ingredient.value);
+    }
+    console.log('const ingredientUnits, ', ingredientUnits);
+
+    const ingredients = [];
+    for (let i = 0; i < ingredientNames.length; i++) {
+      const currentIngredient = {
+        name: ingredientNames[i],
+        quantity: ingredientQuantities[i],
+        unitOfMeasurement: ingredientUnits[i],
+      };
+      ingredients.push(currentIngredient);
+    }
+
+
     const newRecipe = {
       recipeName: document.getElementById('recipeName').value,
-      ingredients: [{
-        name: document.getElementById('ingredientName').value,
-        quantity: document.getElementById('ingredientQuantity').value,
-        unitOfMeasurement: document.getElementById('ingredientUnit').value,
-      }],
+      ingredients,
       instructions: document.getElementById('instructions').value,
     };
 
-    // fetch('/api/recipes', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify(newRecipe),
-    // })
-    //   .then(res => {
-    //     history.push('/');
-    //   })
-    //   .catch(err => console.log(`can't add recipe: ${JSON.stringify(err)}`));
+    fetch('/api/recipes', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newRecipe),
+    })
+      .then(res => {
+        history.push('/');
+      })
+      .catch(err => console.log(`can't add recipe: ${JSON.stringify(err)}`));
   };
 
   return (

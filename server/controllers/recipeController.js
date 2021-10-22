@@ -206,4 +206,25 @@ recipeController.createRecipe = (req, res, next) => {
 
 };
 
+recipeController.deleteMakings = (req, res, next) => {
+  const recipeID = req.params.id;
+  const deleteQuery = `DELETE FROM makings WHERE recipe_id = ${recipeID};`;
+
+  db.query(deleteQuery, (err, data) => {
+    if (err) return next(err);
+    return next();
+  });
+};
+
+recipeController.deleteRecipe = (req, res, next) => {
+  const recipeID = req.params.id;
+  console.log('req.params.id ', req);
+  const deleteQuery = `DELETE FROM recipes WHERE _id = ${recipeID};`;
+
+  db.query(deleteQuery, (err, data) => {
+    if (err) return next(err);
+    return next();
+  });
+};
+
 module.exports = recipeController;
